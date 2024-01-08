@@ -28,24 +28,26 @@ console.log(otp)
 
 // }
 
-// const verifyOtp= async(e)=>{
-//   e.preventDefault();
-//    const confirmationResult = window.confirmationResult;
-//    if(confirmationResult){
-//     try{
-//       await confirmationResult.confirm(otp)
-//       navigate("/home")
-//     }
-//     catch(error){
-//       console.log(error)
-//       alert("error occured on verifyotp()")
-//     }
-//    }
-// }
+const verifyOtp= async(e)=>{
+  e.preventDefault();
+   const confirmationResult = window.confirmationResult;
+   console.log(confirmationResult)
+   if(confirmationResult){
+    try{
+      await confirmationResult.confirm(otp)
+      navigate("/home")
+      window.location.reload();
+    }
+    catch(error){
+      console.log(error)
+      alert("error occured on verifyotp()")
+    }
+   }
+}
 
 return(
   <>
-  <form>
+  <form onSubmit={verifyOtp}>
   <input type="text" value={otp} onChange={(e) =>setOtp(e.target.value)} />
   <br/>
   <input type="submit" value="Verify OTP" />

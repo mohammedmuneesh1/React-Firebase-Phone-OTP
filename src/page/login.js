@@ -38,8 +38,8 @@ export default function Login() {
       signInWithPhoneNumber(auth, phone, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
-        navigate("/home")
-        window.location.reload()
+        navigate("/verify")
+        // window.location.reload()
       })
       .catch((error) => {
         console.log(error);
